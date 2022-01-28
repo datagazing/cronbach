@@ -2,11 +2,16 @@
 Compute Cronbach's alpha statistic
 
 * Crude fork of cronbach_alpha from pingouin
+* Separate package to comply with GPL
+* Avoids some later dependencies (such as newer scipy)
+* Credit to pingouin for all the initial code
 
 Features
 --------
 
 * Works on pandas.DataFrame objects
+* Supports pairwise deletion for missing values
+* Computes confidence intervals
 
 Examples
 --------
@@ -14,7 +19,8 @@ Examples
 .. code-block:: python
 
   >>> from cronbach import alpha
-  >>>
+  >>> alpha(df)
+  (0.9503375120540019, array([0.79 , 0.992]))
 
 License
 -------
