@@ -17,9 +17,9 @@ cronbach
 
 Compute Cronbach's alpha statistic
 
-* Crude fork of cronbach_alpha from pingouin
-* Separate package to comply with GPL
+* Fork of cronbach_alpha from pingouin
 * Avoids some later dependencies (such as newer scipy)
+* Credit to pingouin for all the initial code
 
 Features
 --------
@@ -40,7 +40,7 @@ Examples
 License
 -------
 
-* Free software: GPL-3.0 (because pingouin is)
+* Free software: GPL-3.0
 
 Documentation
 -------------
