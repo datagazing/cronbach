@@ -34,6 +34,6 @@ Documentation
 
 __author__ = """Brendan Strejcek"""
 __email__ = 'brendan@datagazing.com'
-__version__ = '0.3.0'
+__version__ = '0.4.0'
 
 from .cronbach import alpha # noqa F401
