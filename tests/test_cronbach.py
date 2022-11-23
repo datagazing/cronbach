@@ -5,7 +5,7 @@
 
 import unittest
 
-from cronbach import cronbach
+# from cronbach import cronbach
 
 
 class TestCronbach(unittest.TestCase):
