@@ -1,0 +1,119 @@
+
+. * stata analysis code for comparison
+. *
+. * to run at the command line:
+. * stata -b do analyze
+. 
+. import delimited data.tsv, varnames(1) clear delimiter(tab)
+(29 vars, 18,192 obs)
+
+. 
+. label define source ///
+>     1 "front page of website" ///
+>     2 "Google search" ///
+>     3 "other (based on HTTP referrer)" ///
+> 
+
+. label values source source
+
+. 
+. foreach i of varlist m1-p9 {
+  2.     replace `i' = . if `i' == 0
+  3. }
+(15 real changes made, 15 to missing)
+(36 real changes made, 36 to missing)
+(30 real changes made, 30 to missing)
+(27 real changes made, 27 to missing)
+(25 real changes made, 25 to missing)
+(29 real changes made, 29 to missing)
+(29 real changes made, 29 to missing)
+(33 real changes made, 33 to missing)
+(33 real changes made, 33 to missing)
+(21 real changes made, 21 to missing)
+(26 real changes made, 26 to missing)
+(20 real changes made, 20 to missing)
+(26 real changes made, 26 to missing)
+(22 real changes made, 22 to missing)
+(25 real changes made, 25 to missing)
+(27 real changes made, 27 to missing)
+(26 real changes made, 26 to missing)
+(36 real changes made, 36 to missing)
+(31 real changes made, 31 to missing)
+(32 real changes made, 32 to missing)
+(23 real changes made, 23 to missing)
+(39 real changes made, 39 to missing)
+(20 real changes made, 20 to missing)
+(43 real changes made, 43 to missing)
+(28 real changes made, 28 to missing)
+(24 real changes made, 24 to missing)
+(22 real changes made, 22 to missing)
+
+. 
+. sum *
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+          m1 |     18,177    4.182483     .955482          1          5
+          m2 |     18,156    3.483807    1.261777          1          5
+          m3 |     18,162    3.368572     1.19869          1          5
+          m4 |     18,165    3.506909    1.183327          1          5
+          m5 |     18,167    3.574448    1.310344          1          5
+-------------+---------------------------------------------------------
+          m6 |     18,163    3.655343    1.267156          1          5
+          m7 |     18,163    4.383637    .8533221          1          5
+          m8 |     18,159    3.166144      1.2384          1          5
+          m9 |     18,159    4.081667    .9845118          1          5
+          n1 |     18,171    3.273238    1.143005          1          5
+-------------+---------------------------------------------------------
+          n2 |     18,166     3.12072    1.299564          1          5
+          n3 |     18,172     2.64891    1.159315          1          5
+          n4 |     18,166    2.680832    1.230305          1          5
+          n5 |     18,170    3.512548    1.167365          1          5
+          n6 |     18,167    3.099466    1.309508          1          5
+-------------+---------------------------------------------------------
+          n7 |     18,165    2.875034    1.289309          1          5
+          n8 |     18,166    2.600352    1.298087          1          5
+          n9 |     18,156    3.451917    1.170439          1          5
+          p1 |     18,161    3.071252    1.264907          1          5
+          p2 |     18,160    3.210958     1.22133          1          5
+-------------+---------------------------------------------------------
+          p3 |     18,169    2.623204    1.304365          1          5
+          p4 |     18,153     2.32788    1.265766          1          5
+          p5 |     18,172    3.713295     1.15485          1          5
+          p6 |     18,149    2.960879    1.229286          1          5
+          p7 |     18,164    3.542557    1.440598          1          5
+-------------+---------------------------------------------------------
+          p8 |     18,168    2.599351    1.461317          1          5
+          p9 |     18,170     2.79934    1.374032          1          5
+     country |          0
+      source |     18,192    1.764677    .8914346          1          3
+
+. 
+. alpha m1-m9
+
+Test scale = mean(unstandardized items)
+
+Average interitem covariance:     .5370971
+Number of items in the scale:            9
+Scale reliability coefficient:      0.8603
+
+. alpha n1-n9
+
+Test scale = mean(unstandardized items)
+Reversed items:  n2 n6 n8
+
+Average interitem covariance:     .4751984
+Number of items in the scale:            9
+Scale reliability coefficient:      0.8042
+
+. alpha p1-p9
+
+Test scale = mean(unstandardized items)
+Reversed items:  p2 p7
+
+Average interitem covariance:     .5196905
+Number of items in the scale:            9
+Scale reliability coefficient:      0.7979
+
+. 
+end of do-file
